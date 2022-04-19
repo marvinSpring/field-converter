@@ -1,0 +1,55 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
+    <id>com.example.demo2</id>
+
+    <!-- Public plugin name should be written in Title Case.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
+    <name>Demo2</name>
+
+    <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
+    <vendor email="1261626796@qq.com" url="https://www.yourcompany.com">marvin</vendor>
+
+    <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
+         Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description
+
+
+         -->
+    <description><![CDATA[
+    this plugin is<br>
+    <em>32122222222222222222222222222222222222222222</em>
+   ]]></description>
+
+    <!-- Product and plugin compatibility requirements.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <!-- Extension points defined by the plugin.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
+    <extensions defaultExtensionNs="com.intellij">
+
+
+    </extensions>
+    <actions>
+        <action
+                id="EditorBasics.DbToJavaAction"
+                class="com.example.demo2.DbToJavaAction"
+                text="BeanToDb"
+                description="Replaces selected object property with database field."
+                icon="com.example.demo2.SdkIcons.DB_TO_BEAN">
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+        </action>
+    </actions>
+    <actions>
+        <action
+                id="EditorBasics.JavaToDbAction"
+                class="com.example.demo2.JavaToDbAction"
+                text="DbToBean"
+                description="Replaces selected object property with database field."
+                icon="com.example.demo2.SdkIcons.BEAN_TO_DB">
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+        </action>
+    </actions>
+
+</idea-plugin>
