@@ -1,4 +1,4 @@
-package com.example.demo2;
+package com.marvin;
 
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
@@ -10,8 +10,6 @@ import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.project.Project;
 import org.apache.commons.lang.StringUtils;
 import org.jetbrains.annotations.NotNull;
-
-import static com.example.demo2.PropertyFactory.replaceDataBaseFieldToJavaObjectProperties;
 
 /**
  * Menu action to replace a selection of characters with a fixed string.
@@ -44,7 +42,7 @@ public class DbToJavaAction extends AnAction {
             // Replace the selection with a fixed string.
             // Must do this document change in a write action context.
             WriteCommandAction.runWriteCommandAction(project, () ->
-                    document.replaceString(start, end, replaceDataBaseFieldToJavaObjectProperties(selectedText))
+                    document.replaceString(start, end, PropertyFactory.replaceDataBaseFieldToJavaObjectProperties(selectedText))
             );
             // De-select the text range that was just replaced
             primaryCaret.removeSelection();

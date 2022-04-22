@@ -1,4 +1,4 @@
-package com.example.demo2;
+package com.marvin;
 
 import com.intellij.openapi.util.IconLoader;
 

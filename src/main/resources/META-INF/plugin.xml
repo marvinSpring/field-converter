@@ -1,14 +1,14 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
     <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
-    <id>com.example.demo2</id>
+    <id>com.marvin</id>
 
     <!-- Public plugin name should be written in Title Case.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
-    <name>Demo2</name>
+    <name>FieldConverter</name>
 
     <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
-    <vendor email="1261626796@qq.com" url="https://www.yourcompany.com">marvin</vendor>
+    <vendor email="1261626796@qq.com">marvin</vendor>
 
     <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
          Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
@@ -17,8 +17,8 @@
 
          -->
     <description><![CDATA[
-    this plugin is<br>
-    <em>32122222222222222222222222222222222222222222</em>
+    This plugin for converter Database field and Java object property <br>
+    <em>This plugin for converter Database field and Java object property </em>
    ]]></description>
 
     <!-- Product and plugin compatibility requirements.
@@ -34,20 +34,20 @@
     <actions>
         <action
                 id="EditorBasics.DbToJavaAction"
-                class="com.example.demo2.DbToJavaAction"
+                class="com.marvin.DbToJavaAction"
                 text="BeanToDb"
                 description="Replaces selected object property with database field."
-                icon="com.example.demo2.SdkIcons.DB_TO_BEAN">
+                icon="com.marvin.SdkIcons.DB_TO_BEAN">
             <add-to-group group-id="EditorPopupMenu" anchor="first"/>
         </action>
     </actions>
     <actions>
         <action
                 id="EditorBasics.JavaToDbAction"
-                class="com.example.demo2.JavaToDbAction"
+                class="com.marvin.JavaToDbAction"
                 text="DbToBean"
                 description="Replaces selected object property with database field."
-                icon="com.example.demo2.SdkIcons.BEAN_TO_DB">
+                icon="com.marvin.SdkIcons.BEAN_TO_DB">
             <add-to-group group-id="EditorPopupMenu" anchor="first"/>
         </action>
     </actions>

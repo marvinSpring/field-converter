@@ -1,4 +1,4 @@
-package com.example.demo2;
+package com.marvin;
 
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;

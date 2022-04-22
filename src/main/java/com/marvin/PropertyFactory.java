@@ -1,4 +1,4 @@
-package com.example.demo2;
+package com.marvin;
 
 import java.util.List;
 import java.util.stream.Collectors;
