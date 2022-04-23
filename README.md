@@ -12,7 +12,7 @@ convert database fields into Java object attributes, and match the hump attribut
 
 ## Outline the key steps for getting started, such as how to install the plugin and configure it. Also, indicate if your plugin has any complementary or conflicting plugins. Use HTML tags to add formatting.
 
-# Don’t just provide a link, add some explanatory text. For example:
+# For example:
 
 1.Install a compatible JetBrains IDE, such as IntelliJ IDEA, CLion, PyCharm, or other IntelliJ-based IDEs
 
