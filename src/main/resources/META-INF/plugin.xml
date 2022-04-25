@@ -17,8 +17,11 @@
 
          -->
     <description><![CDATA[
-    This plugin for converter Database field and Java object property <br>
-    <em>This plugin for converter Database field and Java object property </em>
+    Have you ever changed the properties of the entities in the project and found that these properties need to be synchronized with the database,
+    or after modifying the properties of the table in the database, you find that you need to synchronize the properties in the entities of the project?
+    We know that in Java, the attributes of entities are raised, such as todayCurrentDateTime, and the attributes of tables in the database are underlined,
+    such as today_current_date_time, the plug-in is used to convert database fields into Java object attributes, and match the hump attribute with the underlined name.
+    <em>This plugin for converter Database field and Java object property</em>
    ]]></description>
 
     <!-- Product and plugin compatibility requirements.
