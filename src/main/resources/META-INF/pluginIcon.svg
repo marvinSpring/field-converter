@@ -1,15 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <defs>
-        <linearGradient id="myLinearGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#C67171" stop-opacity="1" />
-            <stop offset="100%" stop-color="#C67171" stop-opacity="1" />
-        </linearGradient>
-        <linearGradient id="myLinearGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#FFDAB9" stop-opacity="1" />
-            <stop offset="100%" stop-color="#FFDAB9" stop-opacity="1" />
-        </linearGradient>
-    </defs>
-    <rect x="8" y="8" width="100" height="100" rx="8" ry="8" style="fill:url(#myLinearGradient1);" />
-    <rect x="10" y="10" width="100" height="100" rx="11" ry="11" style="fill:url(#myLinearGradient2);" />
-
+<?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+        "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg class="icon" viewBox="0 0 1217 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+     width="40" height="40" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <path d="M81.279482 403.912645l1.601294-0.055217 1054.866326-0.110434h0.55217a54.112699 54.112699 0 0 0 54.057482-53.33966 52.732273 52.732273 0 0 0-23.246374-44.78102L775.026368 35.780642a55.051389 55.051389 0 0 0-74.211701 11.871663l-1.766945 2.374333a52.014451 52.014451 0 0 0-8.503424 39.424966 51.904017 51.904017 0 0 0 21.755513 33.903263l253.611863 173.712806H83.101645a53.450094 53.450094 0 0 0-1.822163 106.844972zM1137.471016 619.976921H82.273389a54.112699 54.112699 0 0 0-54.057482 53.394877 52.897924 52.897924 0 0 0 23.301591 44.781019l394.028795 269.790456v0.055217c9.276463 6.294743 20.099002 9.607765 31.308061 9.607765h0.165651a55.051389 55.051389 0 0 0 44.449717-22.528552l1.104341-1.546077a52.621839 52.621839 0 0 0-14.35643-72.996927l-253.611863-173.712806H1137.471016a53.450094 53.450094 0 0 0 0-106.844972z"></path>
 </svg>

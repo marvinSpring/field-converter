@@ -38,7 +38,7 @@
         <action
                 id="EditorBasics.DbToJavaAction"
                 class="com.marvin.DbToJavaAction"
-                text="BeanToDb"
+                text="DbToBean"
                 description="Replaces selected object property with database field."
                 icon="com.marvin.SdkIcons.DB_TO_BEAN">
             <add-to-group group-id="EditorPopupMenu" anchor="first"/>
@@ -48,7 +48,7 @@
         <action
                 id="EditorBasics.JavaToDbAction"
                 class="com.marvin.JavaToDbAction"
-                text="DbToBean"
+                text="BeanToDb"
                 description="Replaces selected object property with database field."
                 icon="com.marvin.SdkIcons.BEAN_TO_DB">
             <add-to-group group-id="EditorPopupMenu" anchor="first"/>
