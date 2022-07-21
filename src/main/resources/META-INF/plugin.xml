@@ -36,18 +36,8 @@
     </extensions>
     <actions>
         <action
-                id="EditorBasics.DbToJavaAction"
-                class="com.marvin.DbToJavaAction"
-                text="DbToBean"
-                description="Replaces selected object property with database field."
-                icon="com.marvin.SdkIcons.DB_TO_BEAN">
-            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
-        </action>
-    </actions>
-    <actions>
-        <action
                 id="EditorBasics.JavaToDbAction"
-                class="com.marvin.JavaToDbAction"
+                class="com.marvin.FieldFlowAction"
                 text="BeanToDb"
                 description="Replaces selected object property with database field."
                 icon="com.marvin.SdkIcons.BEAN_TO_DB">

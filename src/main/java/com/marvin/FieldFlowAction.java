@@ -15,11 +15,11 @@ import org.jetbrains.annotations.NotNull;
 /**
  * Menu action to replace a selection of characters with a fixed string.
  *
- * @see AnAction
  * @author Marvin
  * @Date: 2022-04-15
+ * @see AnAction
  */
-public class JavaToDbAction extends AnAction {
+public class FieldFlowAction extends AnAction {
 
     /**
      * Replaces the run of text selected by the primary caret with a fixed string.
@@ -39,16 +39,30 @@ public class JavaToDbAction extends AnAction {
         int end = primaryCaret.getSelectionEnd();
         String selectedText = primaryCaret.getSelectedText();
         //selected text can not be null
-        if (!StringUtil.isEmpty(selectedText)){
+        if (!StringUtil.isEmpty(selectedText)) {
             // Replace the selection with a fixed string.
             // Must do this document change in a write action context.
-            WriteCommandAction.runWriteCommandAction(project, () ->
-                    document.replaceString(start, end, PropertyFactory.replaceJavaObjectPropertiesToDataBaseField(selectedText))
+            WriteCommandAction.runWriteCommandAction(project, () -> {
+                        if (checkTextIsContainsUnderline(selectedText)) {
+                            document.replaceString(start, end, PropertyFactory.replaceDataBaseFieldToJavaObjectProperties(selectedText));
+                        } else {
+                            document.replaceString(start, end, PropertyFactory.replaceJavaObjectPropertiesToDataBaseField(selectedText));
+                        }
+                    }
             );
             // De-select the text range that was just replaced
             primaryCaret.removeSelection();
         }
 
+    }
+
+    /**
+     * check selectedText is contains underline {@example user_action}
+     * @param selectedText selectedText
+     * @return true underline text ,false other text
+     */
+    private boolean checkTextIsContainsUnderline(String selectedText) {
+        return selectedText.contains("_");
     }
 
     /**
