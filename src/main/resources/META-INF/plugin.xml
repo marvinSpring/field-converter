@@ -38,7 +38,7 @@
         <action
                 id="EditorBasics.JavaToDbAction"
                 class="com.marvin.FieldFlowAction"
-                text="BeanToDb"
+                text="Flow-DB-Bean"
                 description="Replaces selected object property with database field."
                 icon="com.marvin.SdkIcons.BEAN_TO_DB">
             <add-to-group group-id="EditorPopupMenu" anchor="first"/>
