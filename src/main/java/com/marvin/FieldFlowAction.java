@@ -1,15 +1,21 @@
 package com.marvin;
 
+import com.intellij.codeInsight.actions.MultiCaretCodeInsightAction;
+import com.intellij.codeInsight.actions.MultiCaretCodeInsightActionHandler;
+import com.intellij.codeInsight.editorActions.enter.EnterHandlerDelegate;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.CommonDataKeys;
 import com.intellij.openapi.command.WriteCommandAction;
-import com.intellij.openapi.editor.Caret;
-import com.intellij.openapi.editor.Document;
-import com.intellij.openapi.editor.Editor;
+import com.intellij.openapi.editor.*;
+import com.intellij.openapi.editor.impl.SelectionModelImpl;
 import com.intellij.openapi.project.Project;
+import com.marvin.handler.FieldFlowMultiCaretCodeInsightActionHandler;
 import com.twelvemonkeys.lang.StringUtil;
 import org.jetbrains.annotations.NotNull;
+
+import java.util.Arrays;
+import java.util.List;
 
 
 /**
@@ -19,7 +25,7 @@ import org.jetbrains.annotations.NotNull;
  * @Date: 2022-04-15
  * @see AnAction
  */
-public class FieldFlowAction extends AnAction {
+public class FieldFlowAction extends MultiCaretCodeInsightAction {
 
     /**
      * Replaces the run of text selected by the primary caret with a fixed string.
@@ -34,24 +40,26 @@ public class FieldFlowAction extends AnAction {
         final Project project = e.getRequiredData(CommonDataKeys.PROJECT);
         final Document document = editor.getDocument();
         // Work off of the primary caret to get the selection info
-        Caret primaryCaret = editor.getCaretModel().getPrimaryCaret();
-        int start = primaryCaret.getSelectionStart();
-        int end = primaryCaret.getSelectionEnd();
-        String selectedText = primaryCaret.getSelectedText();
-        //selected text can not be null
-        if (!StringUtil.isEmpty(selectedText)) {
-            // Replace the selection with a fixed string.
-            // Must do this document change in a write action context.
-            WriteCommandAction.runWriteCommandAction(project, () -> {
-                        if (checkTextIsContainsUnderline(selectedText)) {
-                            document.replaceString(start, end, PropertyFactory.replaceDataBaseFieldToJavaObjectProperties(selectedText));
-                        } else {
-                            document.replaceString(start, end, PropertyFactory.replaceJavaObjectPropertiesToDataBaseField(selectedText));
-                        }
-                    }
-            );
-            // De-select the text range that was just replaced
-            primaryCaret.removeSelection();
+        List<Caret> allCarets = editor.getCaretModel().getAllCarets();
+        for (Caret caret : allCarets) {
+                int start = caret.getSelectionStart();
+                int end = caret.getSelectionEnd();
+                String selectedText = caret.getSelectedText();
+                //selected text can not be null
+                if (!StringUtil.isEmpty(selectedText)) {
+                    // Replace the selection with a fixed string.
+                    // Must do this document change in a write action context.
+                    WriteCommandAction.runWriteCommandAction(project, () -> {
+                                if (checkTextIsContainsUnderline(selectedText)) {
+                                    document.replaceString(start, end, PropertyFactory.replaceDataBaseFieldToJavaObjectProperties(selectedText));
+                                } else {
+                                    document.replaceString(start, end, PropertyFactory.replaceJavaObjectPropertiesToDataBaseField(selectedText));
+                                }
+                            }
+                    );
+                    // De-select the text range that was just replaced
+                    caret.removeSelection();
+            }
         }
 
     }
@@ -84,6 +92,11 @@ public class FieldFlowAction extends AnAction {
         e.getPresentation().setEnabledAndVisible(
                 project != null && editor != null && editor.getSelectionModel().hasSelection()
         );
+    }
+
+    @Override
+    protected @NotNull MultiCaretCodeInsightActionHandler getHandler() {
+        return new FieldFlowMultiCaretCodeInsightActionHandler();
     }
 
 
